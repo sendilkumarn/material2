@@ -280,6 +280,19 @@ export class MdCheckbox implements AfterContentInit, ControlValueAccessor {
     }
   }
 
+  /**
+   * Event handler for checkbox input element.
+   * stop propagation for click event.
+   * @param event
+   * @internal
+   */
+  onClickEvent(event: Event) {
+    // We have to stop propagation on click event.
+    // Otherwise the click event, from the input element, 
+    // anyhow always change event is triggered
+    event.stopPropagation();
+  }
+
   private _getAnimationClassForCheckStateTransition(
       oldState: TransitionCheckState, newState: TransitionCheckState): string {
     var animSuffix: string;
